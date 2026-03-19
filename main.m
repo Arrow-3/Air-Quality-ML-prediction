@@ -6,6 +6,17 @@ disp("=== Air Quality Prediction Pipeline Started ===");
 
 
 filepath = 'C:\Drive W\Machine Learning\AirQualityUCI.csv';
+
+% Step 1: Preprocessing
+data = preprocessing(filepath);
+
+% Step 2: Training
+results = training(data);
+
+% Step 3: Evaluation
+evaluation(results);
+
+
 data = readtable(filepath);
 disp(data);
 summary(data)
