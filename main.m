@@ -1,3 +1,10 @@
+clc;
+clear;
+close all;
+
+disp("=== Air Quality Prediction Pipeline Started ===");
+
+
 filepath = 'C:\Drive W\Machine Learning\AirQualityUCI.csv';
 data = readtable(filepath);
 disp(data);
