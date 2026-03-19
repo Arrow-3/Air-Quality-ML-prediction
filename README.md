@@ -2,21 +2,21 @@
 
 # 🌍 Air Quality Prediction using Machine Learning
 
-## 📌 Overview
+📌 Overview
 
-This project develops a machine learning solution to predict **Relative Humidity (RH)** using air quality sensor data.
+This project develops a machine learning pipeline to predict Relative Humidity (RH) using air quality sensor measurements.
 
-The goal is to understand how environmental pollutants and sensor measurements influence humidity levels and to compare different regression models.
+The study investigates how environmental pollutants and temporal factors influence humidity and evaluates multiple regression models to identify the most effective approach.
 
----
+🚀 Key Highlights
 
-## 🚀 Key Highlights
+End-to-end machine learning pipeline in MATLAB
 
-* End-to-end machine learning pipeline
-* Handling missing environmental data (-200 values)
-* Feature engineering using time-based variables
-* Comparison of multiple regression models
-* Hyperparameter optimization
+Time-aware missing value imputation
+
+Feature engineering using temporal data
+
+Comparison of multiple regression models
 
 ---
 
