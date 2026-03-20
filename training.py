@@ -52,10 +52,35 @@ def training(data, model_choice):
         model = grid_search.best_estimator_
 
         print("Best Parameters:", grid_search.best_params_)
+        
 
     elif model_choice == 'random_forest':
-        print("Running Random Forest...")
-        model = RandomForestRegressor(n_estimators=100)
+        print("Running Random Forest with Bayesian Optimization...")
+    
+        param_space = {
+            'n_estimators': (10, 250),
+            'max_depth': (1, 50),
+            'min_samples_split': (2, 50),
+            'min_samples_leaf': (1, 25)
+        }
+    
+        base_model = RandomForestRegressor()
+    
+        bayes_search = BayesSearchCV(
+            estimator=base_model,
+            search_spaces=param_space,
+            n_iter=15,   # same idea as your MATLAB setup
+            cv=3,
+            scoring='neg_mean_squared_error',
+            n_jobs=-1,
+            random_state=42
+        )
+    
+        bayes_search.fit(X_train, y_train)
+    
+        model = bayes_search.best_estimator_
+    
+        print("Best Parameters:", bayes_search.best_params_)
 
     else:
         raise ValueError("Invalid model choice")
