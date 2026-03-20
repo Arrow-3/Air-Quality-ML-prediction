@@ -78,7 +78,9 @@ Missing values are represented as **-200**
 
 * Correlation matrix used to analyze relationships between variables
 * Heatmap visualization for feature interactions
+  ![Heatmap Plot](HeatMap of Corelation between Variables.jpg)
 * Scatter plots with linear fits used to study relationships with RH
+  ![Scatter Plot](Scatter plots of features to RH.jpg)
 
 ---
 
@@ -108,6 +110,7 @@ Missing values are represented as **-200**
 
 * Ensemble model using LSBoost
 * Hyperparameters optimized using **Bayesian Optimization**
+* ![Optimization Function Plot](Random_forest_objective_optimization.png)
 
 ---
 
@@ -135,7 +138,7 @@ Missing values are represented as **-200**
 
 ## 📷 Visualization
 
-### Model Prediction Example
+### Model Prediction Plot
 
 ![Prediction Plot](results_plot.jpg)
 
