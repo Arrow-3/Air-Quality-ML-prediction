@@ -1,19 +1,29 @@
 from preprocessing import preprocessing
+from exploratory_analysis import exploratory_analysis
 from training import training
 from evaluation import evaluation
 
-print("=== Air Quality Prediction Pipeline ===")
+def main():
 
-filepath = "data/AirQualityUCI.csv"
+    print("=== Air Quality Prediction Pipeline ===")
 
-# Step 1
-data = preprocessing(filepath)
+    filepath = "data/AirQualityUCI.csv"
 
-# Step 2 → choose model
-model_choice = "random_forest"
-# models: "linear", "tree", "optimized_tree", "random_forest"
+    # Step 1: Preprocessing
+    data = preprocessing(filepath)
 
-results = training(data, model_choice)
+    # Step 2: EDA
+    exploratory_analysis(data)
 
-# Step 3
-evaluation(results)
+    # Step 3: Model selection
+    model_choice = "random_forest"
+
+    # Step 4: Training
+    results = training(data, model_choice)
+
+    # Step 5: Evaluation
+    evaluation(results)
+
+
+if __name__ == "__main__":
+    main()
