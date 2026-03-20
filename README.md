@@ -18,6 +18,8 @@ Feature engineering using temporal data
 
 Comparison of multiple regression models
 
+Bayesian optimization for model tuning
+
 ---
 
 ## 📊 Dataset
@@ -45,65 +47,135 @@ Missing values are represented as **-200**
 
 ## ⚙️ Methodology
 
-### 1. Data Preprocessing
+### 🔹 1. Data Preprocessing
 
-* Converted data to numeric format
-* Replaced missing values (-200) using **hourly mean**
-* Removed highly missing feature (NMHC)
+#### Data Cleaning
+
+* Converted string values with commas to numeric format
+* Ensured all features are usable for computation
+
+#### Time Feature Engineering
+
+* Extracted:
+
+  * Hour
+  * Month
+  * Day of Week
+* Enables capturing temporal patterns in air quality
+
+#### Missing Value Handling
+
+* Missing values (-200) replaced using **hourly mean imputation**
+* Preserves time-dependent environmental behavior
+
+#### Feature Reduction
+
+* Removed **NMHC(GT)** due to excessive missing values
 
 ---
 
-### 2. Feature Engineering
+### 🔹 2. Exploratory Data Analysis
 
-Extracted time-based features:
-
-* Hour
-* Month
-* Day of week
+* Correlation matrix used to analyze relationships between variables
+* Heatmap visualization for feature interactions
+* Scatter plots with linear fits used to study relationships with RH
 
 ---
 
-### 3. Models Used
+### 🔹 3. Modeling Approach
 
-* Linear Regression (baseline)
-* Decision Tree Regression
-* Optimized Decision Tree (Grid Search)
-* Random Forest (Bayesian Optimization)
+#### Linear Regression
+
+* Used as a baseline model
+* 10-fold cross-validation applied
+* Chosen for interpretability and simplicity
+
+#### Decision Tree Regression
+
+* Captures non-linear relationships
+* Configured with:
+
+  * MinLeafSize = 3
+  * MinParentSize = 1
+  * Curvature-based splitting
+
+#### Optimized Decision Tree
+
+* Hyperparameters tuned using **grid search**
+* 3-fold cross-validation for robustness
+
+#### Random Forest Regression
+
+* Ensemble model using LSBoost
+* Hyperparameters optimized using **Bayesian Optimization**
 
 ---
 
 ## 📈 Results
 
-* Linear Regression performs poorly due to weak linear relationships
-* Decision Trees improve performance by capturing non-linearity
-* Random Forest gives the **best performance and stability**
+### 🔹 Model Performance Comparison
 
-(*Numeric results will be added later*)
+| Model                     | Training RMSE | Test RMSE |
+| ------------------------- | ------------- | --------- |
+| Linear Regression         | 5.845         | 5.856     |
+| Decision Tree             | 0.524         | 5.402     |
+| Optimized Decision Tree   | 0.783         | 7.517     |
+| Random Forest (Optimized) | **0.406**     | **1.976** |
+
+---
+
+### 🔹 Key Observations
+
+* Linear Regression provides a stable but limited baseline
+* Decision Tree captures non-linear patterns but shows slight overfitting
+* Grid Search did not improve generalization significantly
+* Random Forest achieves the **best performance and generalization**
+
+---
+
+## 📷 Visualization
+
+### Model Prediction Example
+
+![Prediction Plot](results_plot.png)
 
 ---
 
 ## 🧠 Key Learnings
 
-* Environmental data is highly non-linear
-* Proper handling of missing values is critical
-* Ensemble models perform best for this task
+* Environmental data exhibits **complex non-linear relationships**
+* Time-aware imputation significantly improves data quality
+* Tree-based models outperform linear models
+* Ensemble methods provide the most reliable predictions
+
+---
+
+## ⚙️ Design Decisions
+
+* Hourly mean imputation preserves temporal dependencies
+* Temporal features improve model performance
+* Ensemble learning chosen for robustness and accuracy
 
 ---
 
 ## 🚀 How to Run
 
 1. Download dataset (see `data/README.md`)
-2. Update file path in `main.m`
+2. Place it in:
+
+```
+data/AirQualityUCI.csv
+```
+
 3. Run:
 
 ```matlab
-main
+air_quality_prediction
 ```
 
 ---
 
 ## 🔮 Future Work
 
-* Apply LSTM / GRU models
-* Explore Transformer-based models
-* Improve temporal modeling
+* Explore Neural Network / Transformer-based models
+* Improve feature selection techniques
