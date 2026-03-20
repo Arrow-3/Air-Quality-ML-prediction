@@ -4,6 +4,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
+from skopt import BayesSearchCV
+from sklearn.ensemble import RandomForestRegressor
 
 def training(data, model_choice):
 
