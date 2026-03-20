@@ -1,18 +1,19 @@
 function evaluation(results)
 
-    disp("Decision Tree RMSE:");
-    disp(results.rmse_tree);
+    disp("Model Used:");
+    disp(results.model);
 
-    disp("Random Forest RMSE:");
-    disp(results.rmse_rf);
+    disp("RMSE:");
+    disp(results.rmse);
 
     % Plot
     figure;
     plot(results.y_test, 'b');
     hold on;
-    plot(results.y_pred_rf, 'r');
+    plot(results.y_pred, 'r');
     legend('Actual','Predicted');
-    title('Random Forest Prediction');
+
+    title(['Model: ', results.model]);
     xlabel('Time Step');
     ylabel('RH');
 
