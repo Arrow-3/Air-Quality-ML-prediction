@@ -17,7 +17,7 @@ model_choice = 'random_forest';
 % model: 'linear', 'tree', 'optimized_tree', 'random_forest'
 
 % Step 2: Training
-results = training(data);
+results = training(data, model_choice);
 
 % Step 3: Evaluation
 evaluation(results);
