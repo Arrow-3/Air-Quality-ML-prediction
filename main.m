@@ -182,7 +182,7 @@ X_std = zscore(X);
 % a standard regression model may be more appropriate, but the inclusion of time-related features
 % (like hour, day, month) could still be beneficial for capturing potential time-based patterns or influences.
 
-%In your case, the pollutants or environmental conditions (like temperature, humidity, etc.) 
+%In this case, the pollutants or environmental conditions (like temperature, humidity, etc.) 
 % may exhibit variations tied to time of day, seasonal changes, or other cyclical patterns,
 % but they may not necessarily follow a strict periodic time series pattern.
 
