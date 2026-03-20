@@ -137,7 +137,7 @@ Missing values are represented as **-200**
 
 ### Model Prediction Example
 
-![Prediction Plot](results_plot.png)
+![Prediction Plot](results_plot.jpg)
 
 ---
 
