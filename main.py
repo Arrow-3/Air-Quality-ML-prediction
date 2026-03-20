@@ -11,7 +11,7 @@ data = preprocessing(filepath)
 
 # Step 2 → choose model
 model_choice = "random_forest"
-# خيارات: "linear", "tree", "random_forest"
+# models: "linear", "tree", "random_forest"
 
 results = training(data, model_choice)
 
