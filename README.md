@@ -78,9 +78,9 @@ Missing values are represented as **-200**
 
 * Correlation matrix used to analyze relationships between variables
 * Heatmap visualization for feature interactions
-  ![Heatmap Plot](HeatMap of Corelation between Variables.jpg)
+  ![Heatmap Plot](HeatMap_of_Corelation_between_Variables.jpg)
 * Scatter plots with linear fits used to study relationships with RH
-  ![Scatter Plot](Scatter plots of features to RH.jpg)
+  ![Scatter Plot](Scatter_plots_of_features_to_RH.jpg)
 
 ---
 
