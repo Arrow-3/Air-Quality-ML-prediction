@@ -10,6 +10,12 @@ filepath = 'C:\Drive W\Machine Learning\AirQualityUCI.csv';
 % Step 1: Preprocessing
 data = preprocessing(filepath);
 
+% -------------------------------
+% SELECT MODEL TO RUN
+% -------------------------------
+model_choice = 'random_forest';  
+% model: 'linear', 'tree', 'optimized_tree', 'random_forest'
+
 % Step 2: Training
 results = training(data);
 
